@@ -1,0 +1,268 @@
+html {
+    height: 100%;
+    font-family: Helvetica, Arial;
+    font-size: 62.5%; /* = 10px */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+h1 {
+    margin: 0;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    height: 6rem;
+    font-size: 3rem;
+    text-align: center;
+    position: relative;
+    z-index: 150;
+    background-color: #e9e9e9;
+}
+
+.nav-bar {
+    position: relative;
+    height: 5rem;
+    text-align: center;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 1rem 0.1rem #000;
+    z-index: 100;
+}
+
+.nav-bar button {
+    height: 5rem;
+    width: 12rem;
+    background-color: #d6d6d6;
+    color: #000;
+    cursor: pointer;
+    border: none;
+    font-size: 1.8rem;
+}
+
+.nav-bar button:hover {
+    background-color: #3a5484;
+    color: #fff;
+}
+
+.flex-slideshow {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 11rem);
+}
+
+.flex-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 1.6rem;
+    display: none;
+}
+
+.flex-slide.shown {
+    display: flex;
+}
+
+.flex-demo, .flex-code {
+    width: 50%;
+    padding: 2rem;
+    overflow-y: auto;
+    font-size: 2.2rem;
+}
+
+.flex-demo {
+    background-color: #e8e8e8;
+}
+
+.flex-demo-html-code {
+    margin: 4rem 0 0 0;
+    display: block;
+}
+
+pre {
+    margin: 0;
+}
+
+em {
+    background-color: #feef5e;
+}
+
+
+/**
+ * DEMOS
+ */
+
+.flex-item {
+    background-color: #3a5484;
+    line-height: 15rem;
+    text-align: center;
+    color: #fff;
+    font-size: 5rem;
+    box-sizing: border-box;
+    border: 5px solid #000; 
+}
+
+ /** A simple example */
+
+.simple-container {
+    display: flex;
+}
+
+.simple-container .flex-item {
+    width: 33.333%;
+    height: 15rem;
+}
+
+ /** The order property */
+
+.order-container {
+    display: flex;
+}
+
+.order-container .flex-item {
+    width: 20%;
+}
+
+.order-container .flex-item-1 {
+    order: 5;
+}
+
+.order-container .flex-item-2 {
+    order: -5;
+}
+
+.order-container .flex-item-3 {
+    order: 2;
+}
+
+.order-container .flex-item-4 {
+    order: 0;
+}
+
+.order-container .flex-item-5 {
+    order: -2;
+}
+
+/** The flex-direction property */
+
+.row-reverse-container {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.row-reverse-container .flex-item {
+    width: 20%;
+}
+
+.column-reverse-container {
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: #d0d0d0;
+}
+
+.column-reverse-container .flex-item {
+    width: 40%;
+    line-height: 10rem;
+    height: 10rem;
+    margin: auto;
+}
+
+/** The flex-grow property */
+
+.flex-grow-container {
+    display: flex;
+}
+
+.flex-grow-container .flex-item {
+    flex-grow: 1;
+}
+
+.flex-grow-container .flex-item:nth-child(2) {
+    flex-grow: 2;
+}
+
+/** The flex-wrap property */
+
+.flex-wrap-container {
+    display: flex;
+}
+
+.flex-wrap-container .flex-item {
+    width: 33%;
+}
+
+.flex-wrap-container .flex-item-large {
+    width: 66%;
+}
+
+.flex-wrap-container.wrap {
+    flex-wrap: wrap;
+}
+
+.flex-wrap-container.wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+
+/** The flex-shrink property */
+
+.flex-shrink-container {
+    display: flex;
+    align-items: stretch;
+}
+
+.flex-shrink-container .flex-item {
+    flex-shrink: 1;
+    flex-basis: 50%;
+}
+
+.flex-shrink-container .flex-item:nth-child(2) {
+    flex-shrink: 2;
+}
+
+/** The justify-content property */
+
+.justify-content-container {
+    display: flex;
+    background-color: #d0d0d0;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.justify-content-container .flex-item {
+    width: 25%;
+}
+
+.justify-content-container.flex-start {
+    justify-content: flex-start;
+}
+
+.justify-content-container.flex-end {
+    justify-content: flex-end;
+}
+
+.justify-content-container.center {
+    justify-content: center;
+}
+
+.justify-content-container.space-between {
+    justify-content: space-between;
+}
+
+.justify-content-container.space-around {
+    justify-content: space-around;
+}
+
+/** The align-items property */
+
+.align-items-container {
+    height: 40rem;
+    background-color: #d0d0d0;
+
+    display: flex;
+    align-items: center;
+}
+
+.align-items-container .flex-item {
+    width: 33.33%;
+}

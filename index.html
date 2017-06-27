@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Flexbox - a practical guide</title>
+        <meta charset="utf-8" />
+        <meta name="author" content="Razvan Olaru" />
+        <link rel="stylesheet" href="flexbox.css" />
+        <script src="flexbox.js"></script>
+    </head>
+    <body>
+        <h1>A practical guide to CSS Flexbox</h1>
+        <nav class="nav-bar">
+            <button class="previous-button" type="button">&lt; Previous</button>
+            <button class="next-button" type="button">Next &gt;</button>
+        </nav>
+        <div class="flex-slideshow">
+            <div class="flex-slide">
+                <div class="flex-demo">
+                    <h2>A simple example</h2>
+                    <div class="simple-container">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                    <code class="flex-demo-html-code">
+                        <pre>
+&lt;div class="simple-container"&gt;
+    &lt;div class="flex-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+                    </code>
+                </div>
+                <code class="flex-code">
+                    <pre>
+.flex-item {
+    background-color: #3a5484;
+    line-height: 15rem;
+    text-align: center;
+    color: #fff;
+    font-size: 5rem;
+    box-sizing: border-box;
+    border: 5px solid #000;
+}
+
+.simple-container {
+    <strong>display: flex;</strong>
+}
+
+.simple-container .flex-item {
+    <strong>width: 33%;
+    height: 15rem;</strong>
+}
+                    </pre>
+                </code>
+            </div>
+
+            <div class="flex-slide">
+                <div class="flex-demo">
+                    <h2>The <b>order</b> property</h2>
+                    <div class="order-container">
+                        <div class="flex-item flex-item-1">1</div>
+                        <div class="flex-item flex-item-2">2</div>
+                        <div class="flex-item flex-item-3">3</div>
+                        <div class="flex-item flex-item-4">4</div>
+                        <div class="flex-item flex-item-5">5</div>
+                    </div>
+                    <code class="flex-demo-html-code">
+                        <pre>
+&lt;div class="order-container"&gt;
+    &lt;div class="flex-item flex-item-1"&gt;1&lt;/div&gt;
+    &lt;div class="flex-item flex-item-2"&gt;2&lt;/div&gt;
+    &lt;div class="flex-item flex-item-3"&gt;3&lt;/div&gt;
+    &lt;div class="flex-item flex-item-4"&gt;4&lt;/div&gt;
+    &lt;div class="flex-item flex-item-5"&gt;5&lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+                    </code>
+                </div>
+                <code class="flex-code">
+                    <pre>
+.flex-item {/* Same as before... */}
+
+.order-container {
+    display: flex;
+    background-color: #d0d0d0;
+}
+
+.order-container .flex-item {
+    width: 20%;
+}
+
+.order-container .flex-item-1 {
+    <strong>order: 5;</strong>
+}
+
+.order-container .flex-item-2 {
+    <strong>order: -5;</strong>
+}
+
+.order-container .flex-item-3 {
+    <strong>order: 2;</strong>
+}
+
+.order-container .flex-item-4 {
+    <strong>order: 0;</strong>
+}
+
+.order-container .flex-item-5 {
+    <strong>order: -2;</strong>
+}
+                    </pre>
+                </code>
+            </div>
+
+            <div class="flex-slide">
+                <div class="flex-demo">
+                    <h2>The <b>flex-direction</b> property</h2>
+                    <div class="row-reverse-container">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                        <div class="flex-item">4</div>
+                        <div class="flex-item">5</div>
+                    </div>
+                    <code class="flex-demo-html-code">
+                        <pre>
+&lt;div class="row-reverse-container"&gt;
+    &lt;div class="flex-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-item"&gt;3&lt;/div&gt;
+    &lt;div class="flex-item"&gt;4&lt;/div&gt;
+    &lt;div class="flex-item"&gt;5&lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+                    </code>
+                    <div class="column-reverse-container">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                        <div class="flex-item">4</div>
+                        <div class="flex-item">5</div>
+                    </div>
+                    <code class="flex-demo-html-code">
+                        <pre>
+&lt;div class="column-reverse-container"&gt;
+    &lt;div class="flex-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-item"&gt;3&lt;/div&gt;
+    &lt;div class="flex-item"&gt;4&lt;/div&gt;
+    &lt;div class="flex-item"&gt;5&lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+                    </code>
+                </div>
+                <code class="flex-code">
+                    <pre>
+.flex-item {/* Same as before... */}
+
+.row-reverse-container {
+    <strong>display: flex;
+    flex-direction: row-reverse;</strong>
+}
+
+.row-reverse-container .flex-item {
+    width: 20%;
+}
+
+.column-reverse-container {
+    <strong>display: flex;
+    flex-direction: column-reverse;</strong>
+    background-color: #d0d0d0;
+}
+
+.column-reverse-container .flex-item {
+    width: 40%;
+    line-height: 10rem;
+    height: 10rem;
+
+    /* Center content horizontally
+       and vertically */
+    <strong>margin: auto;</strong> 
+}
+                    </pre>
+                </code>
+            </div>
+
+            <div class="flex-slide">
+                <div class="flex-demo">
+                    <h2>The <b>flex-grow</b> property</h2>
+                    <div class="flex-grow-container">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                    <code class="flex-demo-html-code">
+                        <pre>
+&lt;div class="flex-grow-container"&gt;
+    &lt;div class="flex-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+                    </code>
+                </div>
+                <code class="flex-code">
+                    <pre>
+.flex-item {/* Same as before... */}
+
+.flex-grow-container {
+    display: flex;
+}
+
+.flex-grow-container .flex-item {
+    <strong>flex-grow: 1;</strong>
+}
+
+.flex-grow-container .flex-item:nth-child(2) {
+    <strong>flex-grow: 2;</strong>
+}
+                    </pre>
+                </code>
+            </div>
+
+            <div class="flex-slide">
+                <div class="flex-demo">
+                    <h2>The <b>flex-wrap</b> property</h2>
+                    <div class="flex-wrap-container wrap">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item flex-item-large">2</div>
+                        <div class="flex-item">3</div>
+                        <div class="flex-item">4</div>
+                        <div class="flex-item">5</div>
+                        <div class="flex-item  flex-item-large">6</div>
+                    </div>
+                    <code class="flex-demo-html-code">
+                        <pre>
+&lt;div class="flex-wrap-container <em>wrap</em>"&gt;
+    &lt;div class="flex-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-item flex-item-large"&gt;2&lt;/div&gt;
+    &lt;div class="flex-item"&gt;3&lt;/div&gt;
+    &lt;div class="flex-item"&gt;4&lt;/div&gt;
+    &lt;div class="flex-item"&gt;5&lt;/div&gt;
+    &lt;div class="flex-item  flex-item-large"&gt;6&lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+                    </code>
+                    <div class="flex-wrap-container  wrap-reverse">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item flex-item-large">2</div>
+                        <div class="flex-item">3</div>
+                        <div class="flex-item">4</div>
+                        <div class="flex-item">5</div>
+                        <div class="flex-item  flex-item-large">6</div>
+                    </div>
+                    <code class="flex-demo-html-code">
+                        <pre>
+&lt;div class="flex-wrap-container <em>wrap-reverse</em>"&gt;
+    &lt;div class="flex-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-item flex-item-large"&gt;2&lt;/div&gt;
+    &lt;div class="flex-item"&gt;3&lt;/div&gt;
+    &lt;div class="flex-item"&gt;4&lt;/div&gt;
+    &lt;div class="flex-item"&gt;5&lt;/div&gt;
+    &lt;div class="flex-item  flex-item-large"&gt;6&lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+                    </code>
+                </div>
+                <code class="flex-code">
+                    <pre>
+.flex-item {/* Same as before... */}
+
+.flex-wrap-container {
+    display: flex;
+}
+
+.flex-wrap-container .flex-item {
+    width: 33%;
+}
+
+.flex-wrap-container .flex-item-large {
+    width: 66%;
+}
+
+.flex-wrap-container<em>.wrap</em> {
+    <strong>flex-wrap: wrap;</strong>
+}
+
+.flex-wrap-container<em>.wrap-reverse</em> {
+    <strong>flex-wrap: wrap-reverse;</strong>
+} 
+                    </pre>
+                </code>
+            </div>
+
+            <div class="flex-slide">
+                <div class="flex-demo">
+                    <h2>The <b>flex-shrink</b> and <b>flex-basis</b> properties</h2>
+                    <div class="flex-shrink-container">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                    <code class="flex-demo-html-code">
+                        <pre>
+&lt;div class="flex-shrink-container"&gt;
+    &lt;div class="flex-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+                    </code>
+                </div>
+                <code class="flex-code">
+                    <pre>
+.flex-item {/* Same as before... */}
+
+.flex-shrink-container {
+    display: flex;
+    align-items: stretch;
+}
+
+.flex-shrink-container .flex-item {
+
+    /* Represents the default
+       size of the item before
+       space is distributed. */
+    <strong>flex-shrink: 1;</strong>
+
+    <strong>flex-basis: 50%;</strong>
+}
+
+.flex-shrink-container .flex-item:nth-child(2) {
+    <strong>flex-shrink: 2;</strong>
+}
+                    </pre>
+                </code>
+            </div>
+
+            <div class="flex-slide">
+                <div class="flex-demo">
+                    <h2>The <b>justify-content</b> property</h2>
+                    <div class="justify-content-container flex-start">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                    <div class="justify-content-container flex-end">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                    <div class="justify-content-container center">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                    <div class="justify-content-container space-between">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                    <div class="justify-content-container space-around">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                    <code class="flex-demo-html-code">
+                        <pre>
+&lt;div class="justify-content-container flex-start"&gt;
+    &lt;div class="flex-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="justify-content-container flex-end"&gt;
+    &lt;div class="flex-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="justify-content-container center"&gt;
+    &lt;div class="flex-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="justify-content-container space-between"&gt;
+    &lt;div class="flex-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="justify-content-container space-around"&gt;
+    &lt;div class="flex-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+                    </code>
+                </div>
+                <code class="flex-code">
+                    <pre>
+.flex-item {/* Same as before... */}
+
+.justify-content-container {
+    display: flex;
+    background-color: #d0d0d0;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.justify-content-container .flex-item {
+    width: 25%;
+}
+
+.justify-content-container.flex-start {
+    <strong>justify-content: flex-start;</strong>
+}
+
+.justify-content-container.flex-end {
+    <strong>justify-content: flex-end;</strong>
+}
+
+.justify-content-container.center {
+    <strong>justify-content: center;</strong>
+}
+
+.justify-content-container.space-between {
+    <strong>justify-content: space-between;</strong>
+}
+
+.justify-content-container.space-around {
+    <strong>justify-content: space-around;</strong>
+}
+                    </pre>
+                </code>
+            </div>
+
+            <div class="flex-slide">
+                <div class="flex-demo">
+                    <h2>The <b>align-content</b> property</h2>
+                    <div class="align-items-container">
+                        <div class="flex-item">1</div>
+                        <div class="flex-item">2</div>
+                        <div class="flex-item">3</div>
+                    </div>
+                    <code class="flex-demo-html-code">
+                        <pre>
+&lt;div class="align-items-container"&gt;
+    &lt;div class="flex-item"&gt;1&lt;/div&gt;
+    &lt;div class="flex-item"&gt;2&lt;/div&gt;
+    &lt;div class="flex-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+                    </code>
+                </div>
+                <code class="flex-code">
+                    <pre>
+.align-items-container {
+    height: 40rem;
+    background-color: #d0d0d0;
+
+    <strong>display: flex;
+    align-items: center;</strong>
+}
+
+.align-items-container .flex-item {
+    width: 33.33%;
+}
+                    </pre>
+                </code>
+            </div>
+
+        </div>
+    </body>
+</html>
